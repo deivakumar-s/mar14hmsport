@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container .card {
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  margin: 15px;
+  overflow: hidden;
+}
+
+.container .card .imgBx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .card .contentBx::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: right;
+  transition-delay: 0.5s;
+}
+
+.container .card:hover .contentBx::before {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.container .card .contentBx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card .contentBx .content {
+  padding: 30px;
+  z-index: 1;
+  transition: 0.5s;
+  transform: translateX(-300px);
+  transition-delay: 0s;
+}
+
+.container .card:hover .contentBx .content {
+  transform: translateX(0px);
+  transition-delay: 0.5s;
+}
+
+.container .card .contentBx .content h3 {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container .card .contentBx .content p {
+  font-size: 1em;
+  line-height: 1.4em;
+  font-weight: 300;
+}
